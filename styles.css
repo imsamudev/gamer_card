@@ -1,0 +1,72 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at center, #333, #000);
+  font-family: "oswald", sans-serif;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .overlay {
+  position: absolute;
+  top: 0;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  transform: perspective(600px) rotateY(-90deg);
+  transform-origin: right;
+  transition: transform 0.8s ease;
+  opacity: 0;
+  overflow-y: auto;
+}
+.card .overlay::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 10px;
+}
+
+.card .overlay::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 10px;
+}
+
+.card .overlay::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 1px solid white;
+}
+.card,
+img,
+.overlay {
+  border-radius: 10px;
+}
+
+.card .overlay h2 {
+  position: static;
+  transform: none;
+  color: white;
+  font-weight: lighter;
+  font-size: 1.5rem;
+  text-align: left;
+  text-wrap: balance;
+  margin: 10px;
+}
+
+.card:hover .overlay {
+  transform: perspective(600px) rotateY(0deg);
+  opacity: 1;
+}
